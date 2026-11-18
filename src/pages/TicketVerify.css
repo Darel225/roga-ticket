@@ -1,0 +1,238 @@
+/* Page containers with 4 states */
+.verify-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+}
+
+/* 1. État : CHARGEMENT (fond sombre neutre) */
+.state-loading {
+  background-color: #0b0f17;
+  color: #e2e8f0;
+}
+
+.spinner {
+  width: 52px;
+  height: 52px;
+  border: 4px solid rgba(255, 255, 255, 0.15);
+  border-top-color: #38bdf8;
+  border-radius: 50%;
+  animation: spin 0.9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-text {
+  margin-top: 1.25rem;
+  font-size: 1.125rem;
+  color: #94a3b8;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* 2. État : VALIDE (fond dégradé vert) */
+.state-valid {
+  background: linear-gradient(135deg, #064e3b 0%, #065f46 50%, #022c22 100%);
+  color: #ffffff;
+}
+
+/* 3. État : INVALIDE (fond dégradé rouge) */
+.state-invalid {
+  background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 50%, #450a0a 100%);
+  color: #ffffff;
+}
+
+/* 4. État : ERREUR (fond gris-bleu sombre) */
+.state-error {
+  background: #0f172a;
+  color: #ffffff;
+}
+
+/* Cartes communes */
+.verify-card {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 18px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.6), 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  margin: auto;
+}
+
+/* Carte Valide : Vert foncé */
+.card-valid {
+  background-color: #022c22;
+  border: 1px solid rgba(52, 211, 153, 0.25);
+}
+
+/* Carte Invalide : Rouge foncé */
+.card-invalid {
+  background-color: #450a0a;
+  border: 1px solid rgba(248, 113, 113, 0.25);
+  text-align: center;
+}
+
+/* Carte Erreur : Gris-bleu sombre */
+.card-error {
+  max-width: 500px;
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  text-align: center;
+}
+
+/* Icônes cercles blancs */
+.icon-circle {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Typographie */
+.verify-title {
+  font-size: 1.625rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.25;
+}
+
+.verify-subtitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #6ee7b7;
+  text-align: center;
+  margin-top: 0.35rem;
+  margin-bottom: 1.75rem;
+}
+
+.card-message {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #fecaca;
+  margin-top: 1rem;
+}
+
+.card-error .card-message {
+  color: #cbd5e1;
+  margin-bottom: 1.5rem;
+}
+
+/* Grille d'informations pour billet valide */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.1rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (min-width: 480px) {
+  .info-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .info-item-full {
+    grid-column: span 2;
+  }
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #94a3b8;
+}
+
+.info-value {
+  margin-top: 0.3rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.35;
+  word-break: break-word;
+}
+
+/* Pied de carte */
+.card-footer {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: center;
+}
+
+.card-footer p {
+  font-size: 0.875rem;
+  color: #a7f3d0;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Bouton Réessayer (État Erreur) */
+.retry-button {
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.retry-button:hover {
+  background-color: #1d4ed8;
+}
+
+.retry-button:active {
+  transform: scale(0.98);
+}
+
+/* Support 320px screens */
+@media (max-width: 360px) {
+  .verify-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .verify-title {
+    font-size: 1.375rem;
+  }
+
+  .verify-subtitle {
+    font-size: 1rem;
+  }
+
+  .icon-circle {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 1rem;
+  }
+
+  .icon-circle svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
